@@ -74,7 +74,7 @@ jobs:
         id: apple
         run: terraform apply -input=false -auto-approve -input=false -parallelism=1 planfile
      
-      - name: get kubee config file
+      - name: get kube config file
         id: getconfig
         if: steps.apple.outcome == 'success'
         run: aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name ${{ env.EKS_CLUSTER }}
